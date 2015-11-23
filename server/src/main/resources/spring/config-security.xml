@@ -21,6 +21,8 @@
         <logout logout-url="/logout"
                 logout-success-url="/login"
                 delete-cookies="JSESSIONID" />
+
+        <!--TODO csrf 使用配置-->
         <csrf disabled="true"></csrf>
     </http>
 
