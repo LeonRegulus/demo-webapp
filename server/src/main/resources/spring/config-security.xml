@@ -17,13 +17,19 @@
         <intercept-url pattern="/**" access="hasRole('ROLE_LOGIN')" />
         <form-login login-page="/login"
                     default-target-url="/"
+                    login-processing-url="/j_spring_security_check"
+                    username-parameter="j_username"
+                    password-parameter="j_password"
+                    authentication-failure-url="/login.do?error"
                     always-use-default-target="false" />
+
         <logout logout-url="/logout"
                 logout-success-url="/login"
+                invalidate-session="true"
                 delete-cookies="JSESSIONID" />
 
         <!--TODO csrf 使用配置-->
-        <csrf disabled="true"></csrf>
+        <csrf disabled="true" />
     </http>
 
     <beans:bean name="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>

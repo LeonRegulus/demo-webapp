@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -19,7 +20,7 @@ public class UserService implements UserDetailsService {
 
         Assert.hasText(username, "登录名不能为空");
 
-        UserDetails ud = new AclUser(username, username);
+        UserDetails ud = new AclUser(username, new BCryptPasswordEncoder().encode(username));
 
         return ud;
     }

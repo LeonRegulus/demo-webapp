@@ -4,8 +4,8 @@ $(document).ready(function() {
         $.ajax({
             url: "http://localhost:8080/appserver/app/hello",
             type: "GET",
-            //dataType: "jsonp",
-            //jsonp: "callback",
+            dataType: "jsonp",
+            jsonp: "callback",
             success: function(result) {
                 console.info(result);
                 alert(result);
