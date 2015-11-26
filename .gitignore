@@ -5,6 +5,9 @@ target/
 .idea/
 *.iml
 
+# output #
+platforms/
+
 # Eclipse #
 .settings/
 .classpath

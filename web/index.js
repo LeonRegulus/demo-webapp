@@ -2,12 +2,26 @@ $(document).ready(function() {
 
     initJQueryAjaxErrorHandler();
 
-    $("#testAjax").click(function() {
+    $("#testjson").click(function() {
+        $.ajax({
+            url: "http://localhost:8080/appserver/json/hello",
+            type: "GET",
+            success: function(result) {
+                console.info("success");
+                console.info(result);
+                alert(result);
+            },
+            error: function(result) {
+                console.info("error");
+                console.info(result);
+            }
+        });
+    });
+
+    $("#testjsonp").click(function() {
         $.ajax({
             url: "http://localhost:8080/appserver/jsonp/hello",
             type: "GET",
-            dataType: "jsonp",
-            jsonp: "callback",
             success: function(result) {
                 console.info("success");
                 console.info(result);

@@ -18,7 +18,7 @@ public class AppController {
         return "app/test";
     }
 
-    @RequestMapping(value = "/app/hello")
+    @RequestMapping(value = "/json/hello")
     @ResponseBody
     public Object hello(HttpServletRequest request) {
 

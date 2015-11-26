@@ -35,4 +35,20 @@
             <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--定义跨域请求-->
+    <mvc:cors>
+
+        <mvc:mapping path="/json/**"
+                     allowed-origins="*"
+                     allowed-methods="GET, PUT, POST"
+                     allowed-headers="Content-Type"
+                     exposed-headers="header1, header2"
+                     allow-credentials="false"
+                     max-age="123" />
+
+        <mvc:mapping path="/jsonp/**"
+                     allowed-origins="http://domain1.com" />
+
+    </mvc:cors>
+
 </beans>
