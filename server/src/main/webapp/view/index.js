@@ -5,8 +5,7 @@ $(document).ready(function() {
     $("#testjson").click(function() {
         $.ajax({
             url: "http://localhost:8780/appserver/json/hello",
-            type: "POST",
-            data: {name : "Leon"},
+            type: "GET",
             success: function(result) {
                 console.info("success");
                 console.info(result);
@@ -22,7 +21,6 @@ $(document).ready(function() {
     $("#testjsonp").click(function() {
         $.ajax({
             url: "http://localhost:8780/appserver/jsonp/hello",
-
             type: "GET",
             success: function(result) {
                 console.info("success");
@@ -42,11 +40,6 @@ $(document).ready(function() {
  * 设定jquery异步的错误统一捕获逻辑
  */
 function initJQueryAjaxErrorHandler() {
-    $(document).ajaxSend(function(event, jqxhr, options) {
-        jqxhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        console.info(jqxhr);
-    });
-
     $(document).ajaxError(function(event, jqxhr, options, ex) {
         // 弹出统一的异常提示框
         switch (jqxhr.status) {

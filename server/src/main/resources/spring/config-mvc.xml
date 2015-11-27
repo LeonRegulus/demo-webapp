@@ -25,8 +25,9 @@
     <mvc:resources mapping="/js/**" location="/js/" />
     <mvc:resources mapping="/css/**" location="/css/" />
     <mvc:resources mapping="/img/**" location="/img/" />
-    <mvc:resources mapping="/lib/**" location="/lib/" />
-    
+    <mvc:resources mapping="/vendor/**" location="/vendor/" />
+    <mvc:resources mapping="/view/**" location="/view/" />
+
     <!-- 定义默认视图解析器（通过prefix和suffix来确定controller的方式 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
             <!-- Example: a logical view name of 'showMessage' is mapped to '/view/showMessage.jsp' -->
@@ -37,18 +38,13 @@
 
     <!--定义跨域请求-->
     <mvc:cors>
-
         <mvc:mapping path="/json/**"
                      allowed-origins="*"
                      allowed-methods="GET, PUT, POST"
-                     allowed-headers="Content-Type"
-                     exposed-headers="header1, header2"
-                     allow-credentials="false"
-                     max-age="123" />
-
-        <mvc:mapping path="/jsonp/**"
-                     allowed-origins="http://domain1.com" />
-
+                     allowed-headers="X-Requested-With, Content-Type"
+                     max-age="10000" />
+        <!--<mvc:mapping path="/jsonp/**"-->
+                     <!--allowed-origins="*" />-->
     </mvc:cors>
 
 </beans>
