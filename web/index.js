@@ -42,6 +42,7 @@ $(document).ready(function() {
  * 设定jquery异步的错误统一捕获逻辑
  */
 function initJQueryAjaxErrorHandler() {
+    // 跨域的异步请求没有X-Requested-With的Header信息。手动添加，用以登录校验同步还是异步时使用。
     $(document).ajaxSend(function(event, jqxhr, options) {
         jqxhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         console.info(jqxhr);
